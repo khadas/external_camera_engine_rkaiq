@@ -82,7 +82,8 @@ void deInitDrmDsp() {
     free_sp_bo(pDrmDsp->bo[0]);
   if (pDrmDsp->bo[1])
     free_sp_bo(pDrmDsp->bo[1]);
-  destroy_sp_dev(pDrmDsp->dev);
+  if (pDrmDsp->dev)
+	destroy_sp_dev(pDrmDsp->dev);
   memset(pDrmDsp, 0, sizeof(struct drmDsp));
 }
 
